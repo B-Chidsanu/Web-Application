@@ -1,0 +1,22 @@
+.topic h1 {
+    color: gold;
+    text-align: center;
+}
+
+.content {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: auto;
+    padding: 20px;
+    width: 600px;
+    background-color: rgb(248, 216, 197);
+}
+img{
+    float: right;
+    width: 180px;
+    height: 180px;
+    
+}
+.manu{
+    margin-left: 100px;
+}

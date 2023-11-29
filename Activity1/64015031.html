@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        a {
+            display: inline;
+            text-decoration: none
+        }
+
+        #myDIV {
+            display: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+
+<body>
+    <h1>My Frits JavaScript</h1>
+    <button id="btn" onclick="btn1()">Click me to display Data and Time</button><br><br>
+    <a href="#" id="change-color" onclick="show()" style="color: rgb(219, 133, 236);">Personal Info</a>
+    <ul id="myDIV">
+        <p>
+            <li> Name: Chidsanupong </li>
+            <li> Sername: Boonma </li>
+            <li> Student ID: 64015031 </li>
+            <li> Subject: WEB APPLICATION DEVELOPMENT [Section 53] </li>
+            <li> Semester: 1 </li>
+            <img src="https://i.pinimg.com/564x/cc/1d/88/cc1d88972e63680ca0f92ad9f4e3427f.jpg" alt="">
+        </p>
+
+    </ul>
+    <h1>Snapshots</h1>
+    <ul>
+        <li><a href="https://i.pinimg.com/564x/c5/03/cd/c503cd4b6af588cfc8f7bff337aa9bcd.jpg"
+                style="color: rgb(219, 133, 236);" onclick="return showImage(event)">Fireworks</a></li>
+        <li><a href="https://i.pinimg.com/564x/a3/ae/df/a3aedf15946cb4db3a67fff05176085d.jpg"
+                style="color: rgb(219, 133, 236);" onclick="return showImage(event)">Crest</a></li>
+        <li><a href="https://i.pinimg.com/564x/fb/bd/f3/fbbdf3e9ae7fa1bbc8099dee1a00582d.jpg"
+                style="color: rgb(219, 133, 236);" onclick="return showImage(event)">Action</a></li>
+        <li><a href="https://i.pinimg.com/564x/96/5b/11/965b11b8ae1bb6485fc2aa59d3798e12.jpg"
+                style="color: rgb(219, 133, 236);" onclick="return showImage(event)">Buffalo</a></li>
+    </ul>
+    <img id="img" src="https://i.pinimg.com/236x/47/11/a4/4711a4345a514b72d4dbf65134464cfb.jpg">
+
+
+    <script>
+        const btn = document.getElementById('btn');
+        let index = 0;
+
+        const colors = ['red', 'green', 'blue', 'pink', 'Lime', 'Aqua'];
+        const textcolors = ['white', '#db85ec', '#ffff00', 'green', 'pink', 'red'];
+
+        function btn1() {
+            btn.style.backgroundColor = colors[index];
+            btn.style.color = textcolors[index];
+            btn.innerHTML = Date()
+            index = index >= colors.length - 1 ? 0 : index + 1;
+        }
+
+        const changeColor = document.getElementById('change-color');
+        changeColor.addEventListener('mouseover', function handleMouseOver() {
+            changeColor.style.background = 'yellow';
+            changeColor.style.color = 'black';
+        });
+        changeColor.addEventListener('mouseout', function handleMouseOut() {
+            changeColor.style.background = '';
+            changeColor.style.color = 'rgb(219, 133, 236)';
+        });
+
+        function show() {
+            var x = document.getElementById("myDIV");
+            console.log(x.style.display)
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else if (x.style.display == "") {
+                x.style.display = "block"
+            } else {
+                x.style.display = "none"
+            }
+        }
+
+        function showImage() {
+            img = document.getElementById("img");
+            img.src = event.target.href
+            return false;
+        }
+    </script>
+</body>
+
+</html>
